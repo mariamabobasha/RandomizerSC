@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Survey Redirect</title>
+  <script>
+    // List of your survey links (replace with your real URLs)
+    const links = [
+      "https://forms.gle/i5PkvywJheUPvwTK9",
+      "https://forms.gle/p2rvuykMdXzctBuS7"
+    ];
+
+    // Optional: equal probability randomization
+    function randomRedirect() {
+      const randomIndex = Math.floor(Math.random() * links.length);
+      const chosenUrl = links[randomIndex];
+
+      // Redirect the user
+      window.location.replace(chosenUrl);
+    }
+
+    // Run as soon as the page loads
+    window.onload = randomRedirect;
+  </script>
+</head>
+<body>
+  <p>Redirecting to the survey… If nothing happens, <a id="backup-link" href="#">click here</a>.</p>
+  <script>
+    // Set backup link in case JS is slow
+    document.getElementById("backup-link").href = links[0];
+  </script>
+</body>
+</html>
